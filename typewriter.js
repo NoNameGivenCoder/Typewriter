@@ -19,11 +19,20 @@ function InitHome() {
 
     console.log(Cookies.get('documents'))
 
-    if (!Cookies.get("documents")) {
-        console.log("No Documents Found.. Creating new one now.")
-        Cookies.set("documents", "Test Document")
-        return;
+    if (Cookies.get("documents")) {
+      for (let i = 0; i < JSON.parse(Cookies.get("documents")).length; i++) {
+        const document = JSON.parse(Cookies.get("documents"))[i];
+
+        console.log(document)
+      }
     } else {
-        console.log(Cookies.get("documents"))
+      console.log("No documents found..")
     }
+}
+
+function cookiesDebug() {
+  Cookies.remove("documents")
+  console.log("Deleted all documents.")
+
+  Cookies.set("documents", "{name : 'Test'}")
 }
