@@ -34,5 +34,5 @@ function cookiesDebug() {
   Cookies.remove("documents")
   console.log("Deleted all documents.")
 
-  Cookies.set("documents", "{name : 'Test'}")
+  Cookies.set("documents", "[{'name' : 'Test'}]")
 }
